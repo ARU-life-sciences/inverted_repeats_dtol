@@ -1,0 +1,2 @@
+#contig	start	end	name	score	strand	break_pos	identity_est	tir_ident	matches	span	la0	la1	ra0	ra1	contig_len	win_start	win_end	kept_pts	bin	arm_len	spacer	ir_class
+ptg000001c	335102	490601	IR	387	.	413221	0.387	0.854	25	155482	335102	336411	489292	490606	1243066	250000	500000	0	2714	1309	152881	wide

@@ -1,0 +1,3 @@
+#contig	start	end	name	score	strand	break_pos	identity_est	tir_ident	matches	span	la0	la1	ra0	ra1	contig_len	win_start	win_end	kept_pts	bin	arm_len	spacer	ir_class
+scaffold_Pltd_1	88962	155105	IR	332	.	121847	0.332	1.000	4824	71409	88962	110411	133656	155105	157761	0	157761	4841	2033	21449	23245	spaced
+scaffold_Pltd_1	1	86305	IR	306	.	43481	0.306	1.000	68	86270	1	415	85891	86305	157761	0	157761	0	719	414	85476	spaced
