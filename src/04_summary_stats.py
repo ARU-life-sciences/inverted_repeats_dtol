@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Compute per-species summary statistics across all irx.tsv files.
+Compute per-species summary statistics across the irx.tsv files of the species
+in meta/latest_assemblies.txt (not every directory under out/, which can hold
+results for species since dropped from the list).
 
 Output: out/summary_stats.tsv
 """
@@ -11,6 +13,7 @@ from pathlib import Path
 
 import pandas as pd
 
+META = Path(__file__).parent.parent / "meta" / "latest_assemblies.txt"
 OUT_DIR = Path(__file__).parent.parent / "out"
 SUMMARY_OUT = OUT_DIR / "summary_stats.tsv"
 
@@ -40,6 +43,10 @@ COLS = {
     "arm_len": int,
     "spacer": int,
     "ir_class": str,
+    "dir_ident": float,
+    "direct_better": int,
+    "locus_id": str,
+    "locus_n_irs": int,
 }
 
 
@@ -64,6 +71,13 @@ def summarise_species(species: str, df: pd.DataFrame) -> dict:
     row["mean_tir_ident"] = df["tir_ident"].mean()
     row["median_score"] = df["score"].median()
 
+    # Loci: IRs whose arms share sequence (irx locus_id). Pairings of repeat
+    # copies give many IRs per locus, so loci are the copy-number-robust count.
+    row["n_loci"] = df["locus_id"].nunique()
+    row["mean_irs_per_locus"] = n / row["n_loci"] if row["n_loci"] else float("nan")
+    row["n_direct_better"] = int(df["direct_better"].sum())
+    row["prop_direct_better"] = row["n_direct_better"] / n if n > 0 else float("nan")
+
     # IR density: IRs per Mb of genome
     if row["genome_size_bp"] > 0:
         row["ir_density_per_mb"] = n / (row["genome_size_bp"] / 1e6)
@@ -81,7 +95,8 @@ def summarise_species(species: str, df: pd.DataFrame) -> dict:
 
 
 def main():
-    species_dirs = sorted(p for p in OUT_DIR.iterdir() if p.is_dir())
+    species = sorted(line.split("\t", 1)[0] for line in META.read_text().splitlines() if line)
+    species_dirs = [OUT_DIR / sp for sp in species]
 
     rows = []
     failed = []
@@ -96,12 +111,21 @@ def main():
             continue
 
         try:
+            # Column names from the file's own '#'-prefixed header line, so a change
+            # in irx's columns cannot silently shift values (a fixed names= list
+            # turns extra columns into the index without any error).
+            with open(tsv_path) as fh:
+                names = fh.readline().rstrip("\n").lstrip("#").split("\t")
+            missing = [c for c in COLS if c not in names]
+            if missing:
+                failed.append((species, f"irx.tsv lacks columns {missing} (old irx output?)"))
+                continue
             df = pd.read_csv(
                 tsv_path,
                 sep="\t",
                 comment="#",
                 header=None,
-                names=list(COLS.keys()),
+                names=names,
                 dtype={k: v for k, v in COLS.items() if v is str},
             )
             # Cast numeric columns (errors='coerce' handles any stray strings)

@@ -4,7 +4,7 @@
 irx holds one contig at a time, so peak RSS tracks the largest scaffold, not
 genome size: in the 2026-10-05 pilot, peak RSS was ~2-2.7x the largest
 scaffold (Viscum_album: 2.15 Gb scaffold -> 4.6 GB RSS; Anopheles_coluzzii:
-102 Mb -> 273 MB). One memory request for every species left small genomes
+102 Mb -> 273 MB); ~4x with irx 79e389e. One memory request for every species left small genomes
 queueing for large-memory slots, hence tiers.
 
 Largest scaffold comes from the gfastats file(s) beside the chosen FASTA
@@ -24,12 +24,14 @@ ROOT = Path(__file__).resolve().parent.parent
 META = ROOT / "meta" / "latest_assemblies.txt"
 BASES_PER_GZ_BYTE = 4.5
 
-# name, max largest-scaffold (bp), LSF mem (MB), threads
+# name, max largest-scaffold (bp), LSF mem (MB), threads.
+# Memory raised 2026-10-06 for irx 79e389e (top-K 32, direct identity):
+# peak RSS ~4x the largest scaffold (Thereva_plebeja: 238 Mb -> 941 MB).
 TIERS = [
-    ("small", 500_000_000, 2000, 2),
-    ("medium", 2_000_000_000, 8000, 2),
-    ("large", 5_000_000_000, 16000, 4),
-    ("xlarge", float("inf"), 32000, 4),
+    ("small", 500_000_000, 4000, 2),
+    ("medium", 2_000_000_000, 12000, 2),
+    ("large", 5_000_000_000, 24000, 4),
+    ("xlarge", float("inf"), 48000, 4),
 ]
 
 

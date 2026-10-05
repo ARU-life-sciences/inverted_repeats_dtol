@@ -145,7 +145,7 @@ echo "[info] assembly: ${ASSEMBLY}"
 echo "[info] threads:  ${THREADS}"
 IRX="/software/team301/mdax/target/release/irx"
 # irx parameters, passed explicitly so the run records exactly what was used.
-IRX_PARAMS=(--min-arm 2000 --min-matches 20)
+IRX_PARAMS=(--min-arm 2000 --min-matches 20 --hits-per-window 32 --min-tir-ident 0.6 --arm-gap-bp 1000)
 # htslib for bgzip/tabix on the GFF3 output.
 HTSLIB="/software/badger/module-builds/htslib/1.21"
 export PATH="${HTSLIB}/bin:${PATH}"
