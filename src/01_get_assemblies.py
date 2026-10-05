@@ -28,6 +28,9 @@ Per species (`<root>/<group>/<species>/assembly/`):
   `*.pre_curation.*`, `*.curated.fa` working files are never used.
 
 Species with no usable host assembly are left out and listed with a reason.
+That includes organelle-only "assemblies" (e.g. Galanthus_nivalis
+lsGalNiva1.1 is a single scaffold_Pltd_1): any selected FASTA under
+ORGANELLE_CHECK_BYTES whose sequences are all MT/Pltd is rejected.
 
 Outputs (default: files in meta/; --stdout prints only species<TAB>path):
   latest_assemblies.txt          species<TAB>path (sorted by species)
@@ -36,6 +39,7 @@ Outputs (default: files in meta/; --stdout prints only species<TAB>path):
 """
 
 import argparse
+import gzip
 import os
 import re
 import sys
@@ -47,6 +51,10 @@ DARWIN_ROOT = Path("/data/tol/data/darwin")
 HOST_DIR = re.compile(r"^(?P<tolid>[^.]+)\.(?P<ver>\d+)$")
 # `<tolid>.<Genus>_...` -> symbiont/cobiont assembly.
 SYMBIONT_DIR = re.compile(r"^[^.]+\.[A-Z]")
+# Organelle-only check: only files this small (compressed) are inspected;
+# the largest organelle genomes are ~11 Mb uncompressed (~3 MB gzipped).
+ORGANELLE_CHECK_BYTES = 5_000_000
+ORGANELLE_SEQ = re.compile(r"(^|_)(MT|Pltd|mito\w*|chloro\w*|plastid\w*)(_\d+)?$", re.IGNORECASE)
 # Release link name: `<tolid>[.<hap>].<version>` (hap = hap1/hap2/maternal/paternal...).
 RELEASE_NAME = re.compile(r"^(?P<tolid>[^.]+)(?:\.(?P<hap>[a-z][a-z0-9]*))?\.(?P<ver>\d+)$")
 
@@ -84,6 +92,19 @@ def find_fasta(d: Path, tolid: str, ver: str, name: str | None = None):
         legacy.sort(key=lambda n: not n.endswith(".gz"))
         return d / legacy[0], "legacy_curated_primary"
     return None, None
+
+
+def organelle_only(path: Path) -> bool:
+    """True if a small FASTA contains only mitochondrial/plastid sequences."""
+    if path.stat().st_size >= ORGANELLE_CHECK_BYTES:
+        return False
+    opener = gzip.open if path.name.endswith(".gz") else open
+    names = []
+    with opener(path, "rt") as f:
+        for line in f:
+            if line.startswith(">"):
+                names.append(line[1:].split()[0] if line[1:].split() else "")
+    return bool(names) and all(ORGANELLE_SEQ.search(n) for n in names)
 
 
 def curated_hosts(curated: Path):
@@ -132,7 +153,19 @@ def release_reference(release: Path):
 
 
 def select_species(asm: Path):
-    """Return (chosen, info). chosen = dict(path, kind, curated_dir, rule) or None."""
+    """Return (chosen, info). chosen = dict(path, kind, curated_dir, rule) or None.
+
+    An organelle-only selection is rejected (info["organelle_only"] = True).
+    """
+    chosen, info = _select_species(asm)
+    info["organelle_only"] = False
+    if chosen and organelle_only(chosen["path"]):
+        info["organelle_only"] = True
+        return None, info
+    return chosen, info
+
+
+def _select_species(asm: Path):
     hosts, n_symbiont, n_other = curated_hosts(asm / "curated")
     info = {
         "n_tolids": len(hosts),
@@ -200,7 +233,9 @@ def main():
                 continue
             chosen, info = select_species(asm)
             if chosen is None:
-                if info["n_host_dirs"]:
+                if info["organelle_only"]:
+                    reason = "organelle_only"
+                elif info["n_host_dirs"]:
                     reason = "host_curation_not_finalised"
                 elif info["n_symbiont_dirs"]:
                     reason = "symbiont_only"

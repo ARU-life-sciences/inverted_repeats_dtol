@@ -33,6 +33,7 @@ Erigeron_karvinskianus	dicots	host_curation_not_finalised		1	0	0
 Evergestis_forficalis	insects	host_curation_not_finalised		1	0	1
 Exoteleia_dodecella	insects	host_curation_not_finalised		1	0	0
 Ficus_carica	dicots	host_curation_not_finalised		1	0	0
+Galanthus_nivalis	monocots	organelle_only		1	0	1
 Galium_saxatile	dicots	host_curation_not_finalised		1	0	0
 Geophilus_easoni	arthropods	host_curation_not_finalised		1	0	0
 Gracula_religiosa	birds	host_curation_not_finalised		1	0	0

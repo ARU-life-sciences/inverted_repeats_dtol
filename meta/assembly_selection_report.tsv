@@ -1394,7 +1394,6 @@ Fumaria_muralis	dicots	release_reference	dmFumMura2.hap1.1	dmFumMura2.1	hap1	1	1
 Funaria_hygrometrica	non-vascular-plants	release_reference	cbFunHygr2.1	cbFunHygr2.1	primary	1	1	0	0	/data/tol/data/darwin/non-vascular-plants/Funaria_hygrometrica/assembly/curated/cbFunHygr2.1/cbFunHygr2.1.primary.fa.gz
 Furcula_furcula	insects	newer_curation_than_reference	ilFurFurc1.1	ilFurFurc1.2	primary	1	2	0	0	/data/tol/data/darwin/insects/Furcula_furcula/assembly/curated/ilFurFurc1.2/ilFurFurc1.2.primary.fa.gz
 Gaidropsarus_vulgaris	fish	release_reference	fGaiVul1.hap1.1	fGaiVul1.1	hap1	1	1	0	0	/data/tol/data/darwin/fish/Gaidropsarus_vulgaris/assembly/curated/fGaiVul1.1/fGaiVul1.hap1.1.primary.fa.gz
-Galanthus_nivalis	monocots	newest_curated_no_reference		lsGalNiva1.1	primary	1	1	0	1	/data/tol/data/darwin/monocots/Galanthus_nivalis/assembly/curated/lsGalNiva1.1/lsGalNiva1.1.primary.fa.gz
 Galatella_linosyris	dicots	release_reference	daGalLino1.hap1.1	daGalLino1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Galatella_linosyris/assembly/curated/daGalLino1.1/daGalLino1.hap1.1.primary.fa.gz
 Galega_officinalis	dicots	release_reference	drGalOffi1.hap1.1	drGalOffi1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Galega_officinalis/assembly/curated/drGalOffi1.1/drGalOffi1.hap1.1.primary.fa.gz
 Galeopsis_angustifolia	dicots	release_reference	daGalAngu1.hap1.1	daGalAngu1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Galeopsis_angustifolia/assembly/curated/daGalAngu1.1/daGalAngu1.hap1.1.primary.fa.gz

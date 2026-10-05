@@ -1393,7 +1393,6 @@ Fumaria_muralis	/data/tol/data/darwin/dicots/Fumaria_muralis/assembly/curated/dm
 Funaria_hygrometrica	/data/tol/data/darwin/non-vascular-plants/Funaria_hygrometrica/assembly/curated/cbFunHygr2.1/cbFunHygr2.1.primary.fa.gz
 Furcula_furcula	/data/tol/data/darwin/insects/Furcula_furcula/assembly/curated/ilFurFurc1.2/ilFurFurc1.2.primary.fa.gz
 Gaidropsarus_vulgaris	/data/tol/data/darwin/fish/Gaidropsarus_vulgaris/assembly/curated/fGaiVul1.1/fGaiVul1.hap1.1.primary.fa.gz
-Galanthus_nivalis	/data/tol/data/darwin/monocots/Galanthus_nivalis/assembly/curated/lsGalNiva1.1/lsGalNiva1.1.primary.fa.gz
 Galatella_linosyris	/data/tol/data/darwin/dicots/Galatella_linosyris/assembly/curated/daGalLino1.1/daGalLino1.hap1.1.primary.fa.gz
 Galega_officinalis	/data/tol/data/darwin/dicots/Galega_officinalis/assembly/curated/drGalOffi1.1/drGalOffi1.hap1.1.primary.fa.gz
 Galeopsis_angustifolia	/data/tol/data/darwin/dicots/Galeopsis_angustifolia/assembly/curated/daGalAngu1.1/daGalAngu1.hap1.1.primary.fa.gz
