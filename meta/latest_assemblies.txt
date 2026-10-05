@@ -367,6 +367,7 @@ Aquilegia_vulgaris	/data/tol/data/darwin/dicots/Aquilegia_vulgaris/assembly/cura
 Ara_militaris	/data/tol/data/darwin/birds/Ara_militaris/assembly/curated/bAraMil1.1/bAraMil1.hap1.1.primary.fa.gz
 Arabidopsis_thaliana	/data/tol/data/darwin/dicots/Arabidopsis_thaliana/assembly/curated/ddAraThal4.1/ddAraThal4.1.primary.fa.gz
 Arabis_hirsuta	/data/tol/data/darwin/dicots/Arabis_hirsuta/assembly/curated/ddAraHirs1.1/ddAraHirs1.hap1.1.primary.fa.gz
+Arachnomyces_sp_KDTOL00113	/data/tol/data/darwin/fungi/Arachnomyces_sp_KDTOL00113/assembly/curated/gpAraPeru1.1/gpAraPeru1.1.primary.fa.gz
 Aradus_depressus	/data/tol/data/darwin/insects/Aradus_depressus/assembly/curated/ihAraDepr1.1/ihAraDepr1.1.primary.fa.gz
 Aradus_truncatus	/data/tol/data/darwin/insects/Aradus_truncatus/assembly/curated/ihAraTrun1.1/ihAraTrun1.hap1.1.primary.fa.gz
 Araneus_angulatus	/data/tol/data/darwin/arthropods/Araneus_angulatus/assembly/curated/qqAraAngu1.1/qqAraAngu1.hap1.1.primary.fa.gz
@@ -464,7 +465,6 @@ Balaenoptera_acutorostrata	/data/tol/data/darwin/mammals/Balaenoptera_acutorostr
 Balaenoptera_borealis	/data/tol/data/darwin/mammals/Balaenoptera_borealis/assembly/curated/mBalBor1.1/mBalBor1.hap1.1.primary.fa.gz
 Balaenoptera_physalus	/data/tol/data/darwin/mammals/Balaenoptera_physalus/assembly/curated/mBalPhy2.1/mBalPhy2.hap1.1.primary.fa.gz
 Balanococcus_diminutus	/data/tol/data/darwin/insects/Balanococcus_diminutus/assembly/curated/ihBalDimi2.1/ihBalDimi2.1.primary.fa.gz
-Balearica_regulorum_gibbericeps	/data/tol/data/darwin/birds/Balearica_regulorum_gibbericeps/assembly/curated/gpAraPeru1.1/gpAraPeru1.1.primary.fa.gz
 Ballota_nigra	/data/tol/data/darwin/dicots/Ballota_nigra/assembly/curated/daBalNigr1.1/daBalNigr1.1.primary.fa.gz
 Baranisobas_ridibundus	/data/tol/data/darwin/insects/Baranisobas_ridibundus/assembly/curated/iyBarRidi1.1/iyBarRidi1.1.primary.fa.gz
 Barbarea_vulgaris	/data/tol/data/darwin/dicots/Barbarea_vulgaris/assembly/curated/ddBarVulg1.1/ddBarVulg1.1.primary.fa.gz
@@ -1042,6 +1042,7 @@ Diarsia_brunnea	/data/tol/data/darwin/insects/Diarsia_brunnea/assembly/curated/i
 Diarsia_dahlii	/data/tol/data/darwin/insects/Diarsia_dahlii/assembly/curated/ilDiaDahl1.1/ilDiaDahl1.1.primary.fa.gz
 Diarsia_mendica	/data/tol/data/darwin/insects/Diarsia_mendica/assembly/curated/ilDiaMeni1.1/ilDiaMeni1.1.primary.fa.gz
 Diarsia_rubi	/data/tol/data/darwin/insects/Diarsia_rubi/assembly/curated/ilDiaRubi1.1/ilDiaRubi1.1.primary.fa.gz
+Diastrophus_rubi	/data/tol/data/darwin/insects/Diastrophus_rubi/assembly/curated/iyDiaRubi1.1/iyDiaRubi1.1.primary.fa.gz
 Diazona_violacea	/data/tol/data/darwin/chordates/Diazona_violacea/assembly/curated/kaDiaViol1.1/kaDiaViol1.hap1.1.primary.fa.gz
 Dichetophora_obliterata	/data/tol/data/darwin/insects/Dichetophora_obliterata/assembly/curated/idDicObli2.1/idDicObli2.1.primary.fa.gz
 Dichomeris_marginella	/data/tol/data/darwin/insects/Dichomeris_marginella/assembly/curated/ilDicMarg1.1/ilDicMarg1.hap2.1.primary.fa.gz

@@ -257,6 +257,21 @@ def main():
             by_species[r[0]] = r
     rows = [by_species[s] for s in sorted(by_species)]
 
+    # ToLIDs start with a clade letter (b = birds, i = insects, ...). Flag an
+    # assembly whose letter differs from the usual one for its group: it may
+    # be misfiled (e.g. 2026-10-05: fungal gpAraPeru1.1 under a crane,
+    # Balearica_regulorum_gibbericeps). A warning, not an exclusion, since
+    # some placements are genuinely ambiguous (algae vs protists).
+    letters = {}
+    for _, group, c, _ in rows:
+        letters.setdefault(group, {}).setdefault(c["curated_dir"][:1], 0)
+        letters[group][c["curated_dir"][:1]] += 1
+    usual = {g: max(cnt, key=cnt.get) for g, cnt in letters.items()}
+    for species, group, c, _ in rows:
+        if c["curated_dir"][:1] != usual[group]:
+            print(f"[warn] ToLID/group mismatch: {group}/{species} uses {c['curated_dir']} "
+                  f"(group usually '{usual[group]}'); check it is not misfiled", file=sys.stderr)
+
     if args.stdout:
         for species, _, chosen, _ in rows:
             print(f"{species}\t{chosen['path']}")

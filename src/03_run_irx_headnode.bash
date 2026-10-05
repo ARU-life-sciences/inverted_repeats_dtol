@@ -163,7 +163,8 @@ if [[ "${LSF}" -eq 1 ]]; then
     cp "${pending}" "${pending_meta}"
     echo "[info] wrote ${total_pending} pending assemblies to ${pending_meta}"
 
-    array_spec="1-${total_pending}"
+    # LSF syntax is name[1-N]%M: the concurrency cap goes *after* the brackets.
+    array_spec="[1-${total_pending}]"
     if [[ -n "${LSF_CONC}" ]]; then
         array_spec="${array_spec}%${LSF_CONC}"
     fi
@@ -171,14 +172,14 @@ if [[ "${LSF}" -eq 1 ]]; then
     fasta_flag=()
     [[ "${WITH_FASTA}" -eq 1 ]] && fasta_flag=(--with-fasta)
 
-    echo "[info] submitting LSF job array ${JOB_NAME}[${array_spec}] (queue=${QUEUE}, mem=${MEM}M, threads=${THREADS})"
+    echo "[info] submitting LSF job array ${JOB_NAME}${array_spec} (queue=${QUEUE}, mem=${MEM}M, threads=${THREADS})"
 
     # LSF here runs the command directly rather than via a login shell, so
     # $LSB_JOBINDEX would never expand if just single-quoted on the command
     # line -- wrap in an explicit `bash -c` so the *execution host's* shell
     # (where LSB_JOBINDEX is actually set) does the expansion at run time.
     bsub \
-        -J "${JOB_NAME}[${array_spec}]" \
+        -J "${JOB_NAME}${array_spec}" \
         -q "${QUEUE}" \
         -n "${THREADS}" \
         -R "select[mem>=${MEM}] span[hosts=1] rusage[mem=${MEM}]" \

@@ -22,7 +22,6 @@ Cleonymus_obscurus	insects	symbiont_only		0	1	0
 Coleophora_spinella	insects	host_curation_not_finalised		1	0	0
 Conosanus_obsoletus	insects	host_curation_not_finalised		1	0	0
 Cortinarius_bergeronii	fungi	host_curation_not_finalised		1	0	0
-Diastrophus_rubi	insects	host_curation_not_finalised		1	0	0
 Dolichopus_trivialis	insects	symbiont_only		0	1	0
 Dusona_minor	insects	symbiont_only		0	3	0
 Eilema_complana	insects	host_curation_not_finalised		1	0	1
