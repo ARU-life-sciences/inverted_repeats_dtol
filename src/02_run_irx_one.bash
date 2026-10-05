@@ -167,9 +167,9 @@ echo "[info] started:  $(date -Iseconds)"
 # check the exact assembly path, binary hash and parameters used.
 outputs_exist() {
     if [[ "${WITH_FASTA}" -eq 1 ]]; then
-        [[ -s "${bed}" && -s "${html}" && -s "${gff}.gz" && -s "${gff}.gz.tbi" && -s "${fasta}.gz" ]]
+        [[ -s "${bed}" && -s "${html}" && -s "${gff}.gz" && -s "${gff}.gz.csi" && -s "${fasta}.gz" ]]
     else
-        [[ -s "${bed}" && -s "${html}" && -s "${gff}.gz" && -s "${gff}.gz.tbi" ]]
+        [[ -s "${bed}" && -s "${html}" && -s "${gff}.gz" && -s "${gff}.gz.csi" ]]
     fi
 }
 
@@ -211,7 +211,9 @@ fi
 
 # GFF3 is written sorted by contig/start, so it can be indexed directly.
 bgzip -f "${gff}"
-tabix -f -p gff "${gff}.gz"
+# CSI, not TBI: TBI cannot index positions beyond 2^29 (536,870,912 bp),
+# which multi-Gb plant scaffolds exceed (e.g. Viscum_album, 1.76 Gb).
+tabix -f --csi -p gff "${gff}.gz"
 
 # Only stamp on success (script has `set -e`, so reaching here means the
 # irx invocation above didn't fail).
