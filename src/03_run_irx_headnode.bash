@@ -157,7 +157,9 @@ if [[ "${total_pending}" -eq 0 ]]; then
 fi
 
 if [[ "${LSF}" -eq 1 ]]; then
-    pending_meta="${ROOT}/meta/pending_assemblies.txt"
+    # One file per job name: array tasks read it when they *start*, so a
+    # later submission must not overwrite a file a pending array still needs.
+    pending_meta="${ROOT}/meta/pending_${JOB_NAME}.txt"
     cp "${pending}" "${pending_meta}"
     echo "[info] wrote ${total_pending} pending assemblies to ${pending_meta}"
 
