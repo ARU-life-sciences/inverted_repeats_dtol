@@ -209,6 +209,22 @@ if [[ "${WITH_FASTA}" -eq 1 ]]; then
     gzip -f "${fasta}"
 fi
 
+# Integrity check before stamping: on 2026-10-06, 5/3,416 irx.tsv files came back
+# from Lustre with blocks of NUL bytes appended (rows intact, irx exit 0). Refuse to
+# stamp a TSV that has NULs or whose row count disagrees with the GFF, so the
+# species is simply re-run rather than silently kept.
+python3 - "${bed}" "${gff}" <<'PY'
+import sys
+tsv, gff = sys.argv[1], sys.argv[2]
+data = open(tsv, "rb").read()
+if b"\0" in data:
+    sys.exit(f"[error] {tsv}: contains NUL bytes")
+rows = sum(1 for l in data.split(b"\n") if l and not l.startswith(b"#"))
+irs = sum(1 for l in open(gff) if "\tinverted_repeat\t" in l)
+if rows != irs:
+    sys.exit(f"[error] {tsv}: {rows} rows but {gff} has {irs} IRs")
+PY
+
 # GFF3 is written sorted by contig/start, so it can be indexed directly.
 bgzip -f "${gff}"
 # CSI, not TBI: TBI cannot index positions beyond 2^29 (536,870,912 bp),
