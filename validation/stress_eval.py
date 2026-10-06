@@ -4,7 +4,8 @@ arm length accuracy, and calls matching no planted IR (spurious)."""
 import csv
 from collections import defaultdict
 from pathlib import Path
-D = Path(__file__).resolve().parent / "stress"
+import os
+D = Path(__file__).resolve().parent / os.environ.get("STRESS_DIR", "stress")
 truth = list(csv.DictReader(open(D / "truth.tsv"), delimiter="\t"))
 calls = defaultdict(list)
 for l in open(D / "calls.tsv"):

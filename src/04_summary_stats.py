@@ -47,6 +47,7 @@ COLS = {
     "direct_better": int,
     "locus_id": str,
     "locus_n_irs": int,
+    "pass": str,
 }
 
 
@@ -77,6 +78,9 @@ def summarise_species(species: str, df: pd.DataFrame) -> dict:
     row["mean_irs_per_locus"] = n / row["n_loci"] if row["n_loci"] else float("nan")
     row["n_direct_better"] = int(df["direct_better"].sum())
     row["prop_direct_better"] = row["n_direct_better"] / n if n > 0 else float("nan")
+    # Footprint scale: IRs from the large-window pass (footprint > 200 kb).
+    row["n_large"] = int((df["pass"] == "large").sum())
+    row["prop_large"] = row["n_large"] / n if n > 0 else float("nan")
 
     # IR density: IRs per Mb of genome
     if row["genome_size_bp"] > 0:

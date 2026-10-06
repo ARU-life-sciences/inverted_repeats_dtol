@@ -8,10 +8,13 @@ one IR (left = segment starting first). Overlapping mm2 IRs are merged.
 Agreement = a call's left/right arms each overlap the mm2 IR's segments.
 Usage: mm2_compare.py <species> <irx_calls.tsv> [...more call files]
 """
+import os
 import sys
 from collections import defaultdict
 from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
+# Footprint band of minimap2 IRs to score (env FP_MIN/FP_MAX, bp): default <= 250 kb.
+FP_MIN, FP_MAX = int(os.environ.get("FP_MIN", 0)), int(os.environ.get("FP_MAX", 250_000))
 sp, callfiles = sys.argv[1], sys.argv[2:]
 mm = defaultdict(list)
 for l in open(ROOT / f"validation/mm2/{sp}.paf"):
@@ -22,7 +25,7 @@ for l in open(ROOT / f"validation/mm2/{sp}.paf"):
     qs, qe, ts, te = int(x[2]) + off, int(x[3]) + off, int(x[7]), int(x[8])
     if qe - qs < 2000 or te - ts < 2000: continue
     a, b = sorted([(qs, qe), (ts, te)])
-    if b[1] - a[0] > 250_000: continue
+    if not FP_MIN < b[1] - a[0] <= FP_MAX: continue
     mm[qctg].append((a[0], a[1], b[0], b[1], int(x[9]) / int(x[10])))
 # merge mm2 IRs whose left and right segments both overlap (same IR, mirrored/duplicate chains)
 ov = lambda a0, a1, b0, b1: a0 < b1 and b0 < a1
@@ -35,7 +38,7 @@ for ctg, hits in mm.items():
         else:
             merged[ctg].append(list(h))
 n_mm = sum(len(v) for v in merged.values())
-print(f"== {sp}: minimap2 IRs (>=2 kb segments, footprint <=250 kb): {n_mm}")
+print(f"== {sp}: minimap2 IRs (>=2 kb segments, footprint {FP_MIN//1000}-{FP_MAX//1000} kb): {n_mm}")
 for cf in callfiles:
     calls = defaultdict(list)
     for l in open(cf):
