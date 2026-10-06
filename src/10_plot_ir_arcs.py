@@ -29,6 +29,11 @@ import numpy as np
 SEQ_BLUE = ["#86b6ef", "#5598e7", "#2a78d6", "#1c5cab", "#104281", "#0d366b"]
 SURFACE, INK, INK2, MUTED, GRID = "#fcfcfb", "#0b0b0b", "#52514e", "#898781", "#e1e0d9"
 TIR_MIN, TIR_MAX = 0.6, 1.0  # irx --min-tir-ident floor .. perfect
+# Diverging (default): red (less identical than the median, older?) <-> mid grey at
+# the plotted IRs' median tir_ident <-> blue (more identical, younger?). Reference
+# palette's blue<->red pair; the grey is darker than the palette's surface-level
+# neutral so median arcs stay visible on the light surface.
+DIV = ["#8f1d1c", "#c53532", "#e98584", "#a9a7a0", "#6da7ec", "#256abf", "#0d366b"]
 
 
 def parse_gff(path, contig):
@@ -79,6 +84,10 @@ def main():
     ap.add_argument("--out", type=Path)
     ap.add_argument("--title")
     ap.add_argument("--bin-mb", type=float, default=1.0, help="locus-density bin size (Mb)")
+    ap.add_argument("--colour", choices=["diverging", "sequential"], default="diverging",
+                    help="diverging: centred on the median tir_ident, ends at the 2nd/98th "
+                         "percentiles (default); sequential: fixed 0.6-1.0 blue ramp")
+    ap.add_argument("--mid", type=float, help="diverging midpoint (default: median tir_ident)")
     args = ap.parse_args()
 
     length, irs = parse_gff(args.gff, args.contig)
@@ -96,17 +105,30 @@ def main():
         2, 1, figsize=(16, 6.2), sharex=True, gridspec_kw=dict(height_ratios=[4.2, 1], hspace=0.08)
     )
     fig.patch.set_facecolor(SURFACE)
-    cmap = LinearSegmentedColormap.from_list("seq_blue", SEQ_BLUE)
-    norm = Normalize(TIR_MIN, TIR_MAX)
-
-    # Low identity first so the most identical (youngest) IRs draw on top.
-    irs.sort(key=lambda ir: (np.nan_to_num(ir[4], nan=0.0)))
+    tirs = np.array([ir[4] for ir in irs if np.isfinite(ir[4])]) if irs else np.array([1.0])
+    if args.colour == "diverging":
+        from matplotlib.colors import TwoSlopeNorm
+        mid = args.mid if args.mid is not None else float(np.median(tirs))
+        q02, q98 = np.percentile(tirs, [2, 98])
+        half = max(mid - q02, q98 - mid, 0.01)
+        cmap = LinearSegmentedColormap.from_list("div", DIV)
+        norm = TwoSlopeNorm(vmin=mid - half, vcenter=mid, vmax=min(mid + half, 1.0 + 1e-6)
+                            if mid + half > 1.0 and mid < 1.0 else mid + half)
+        # Draw the most deviant (most informative) arcs last, on top.
+        irs.sort(key=lambda ir: abs(np.nan_to_num(ir[4], nan=mid) - mid))
+        cbar_label = f"arm identity (tir_ident), centred on median {mid:.3f}\n\u2190 less identical      more identical \u2192"
+    else:
+        cmap = LinearSegmentedColormap.from_list("seq_blue", SEQ_BLUE)
+        norm = Normalize(TIR_MIN, TIR_MAX)
+        # Low identity first so the most identical (youngest) IRs draw on top.
+        irs.sort(key=lambda ir: (np.nan_to_num(ir[4], nan=0.0)))
+        cbar_label = "arm identity (tir_ident)"
     segs, cols, widths = [], [], []
     for la0, la1, ra0, ra1, tir, _, _ in irs:
         x0, x1 = (la0 + la1) / 2 / scale, (ra0 + ra1) / 2 / scale
         fp_kb = (ra1 - la0) / 1e3
         segs.append(arc(x0, x1, fp_kb))
-        cols.append(cmap(norm(tir if np.isfinite(tir) else TIR_MIN)))
+        cols.append(cmap(norm(tir if np.isfinite(tir) else norm.vmin)))
         widths.append(0.7)
     alpha = 0.85 if len(irs) < 300 else 0.55 if len(irs) < 3000 else 0.35
     ax.add_collection(LineCollection(segs, colors=cols, linewidths=widths, alpha=alpha, capstyle="round"))
@@ -157,7 +179,7 @@ def main():
 
     sm = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
     cb = fig.colorbar(sm, ax=[ax, axd], fraction=0.018, pad=0.01)
-    cb.set_label("arm identity (tir_ident)", color=INK2, fontsize=9)
+    cb.set_label(cbar_label, color=INK2, fontsize=9)
     cb.outline.set_visible(False)
     cb.ax.tick_params(colors=MUTED, labelsize=8)
 
