@@ -88,9 +88,10 @@ def main():
                     help="diverging: centred on the median tir_ident, ends at the 2nd/98th "
                          "percentiles (default); sequential: fixed 0.6-1.0 blue ramp")
     ap.add_argument("--mid", type=float, help="diverging midpoint (default: median tir_ident)")
-    ap.add_argument("--hide-pass-boundary", action="store_true",
-                    help="omit the dashed 200 kb local/large-pass guide (a methods QC marker; "
-                         "recall is complete either side of it) -- e.g. for paper figures")
+    ap.add_argument("--paper", "--hide-pass-boundary", dest="paper", action="store_true",
+                    help="paper figure: omit the dashed 200 kb local/large-pass guide (a methods QC "
+                         "marker; recall is complete either side of it) and the subtitle (counts and "
+                         "reading guide belong in the caption)")
     args = ap.parse_args()
 
     length, irs = parse_gff(args.gff, args.contig)
@@ -145,7 +146,7 @@ def main():
     ax.set_yticks(ticks)
     ax.set_yticklabels([f"{t:g}" for t in ticks])
     ax.set_xlim(r0 / scale, r1 / scale)
-    if fp_max > 200 and not args.hide_pass_boundary:
+    if fp_max > 200 and not args.paper:
         ax.axhline(200, color=MUTED, lw=0.8, ls=(0, (4, 3)), zorder=0)
         ax.text(r0 / scale + (r1 - r0) / scale * 0.004, 200, "200 kb: local / large-pass boundary",
                 color=INK2, fontsize=8, va="center", ha="left", zorder=5,
@@ -175,10 +176,11 @@ def main():
     n_large = sum(1 for ir in irs if ir[6] == "large")
     title = args.title or f"{species.replace('_', ' ')}  ·  {args.contig}"
     region = "" if (r0, r1) == (0, length) else f"  ·  {r0/scale:.1f}-{r1/scale:.1f} Mb"
-    ax.set_title(f"{title}{region}", loc="left", color=INK, fontsize=12, pad=18)
-    ax.text(0, 1.015, f"{len(irs):,} IRs in {len(first):,} loci ({n_large:,} from the large pass)  ·  "
-            f"arc = left arm to right arm, height = footprint", transform=ax.transAxes,
-            color=INK2, fontsize=8.5, va="bottom")
+    ax.set_title(f"{title}{region}", loc="left", color=INK, fontsize=12, pad=8 if args.paper else 18)
+    if not args.paper:
+        ax.text(0, 1.015, f"{len(irs):,} IRs in {len(first):,} loci ({n_large:,} from the large pass)  ·  "
+                f"arc = left arm to right arm, height = footprint", transform=ax.transAxes,
+                color=INK2, fontsize=8.5, va="bottom")
 
     sm = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
     cb = fig.colorbar(sm, ax=[ax, axd], fraction=0.018, pad=0.01)
@@ -187,7 +189,7 @@ def main():
     cb.ax.tick_params(colors=MUTED, labelsize=8)
 
     fig.savefig(out, dpi=200, facecolor=SURFACE, bbox_inches="tight")
-    print(f"wrote {out}  ({len(irs)} IRs, {len(first)} loci)")
+    print(f"wrote {out}  ({len(irs)} IRs, {len(first)} loci, {n_large} from the large pass)")
 
 
 if __name__ == "__main__":
