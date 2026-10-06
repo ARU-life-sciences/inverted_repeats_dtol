@@ -88,6 +88,9 @@ def main():
                     help="diverging: centred on the median tir_ident, ends at the 2nd/98th "
                          "percentiles (default); sequential: fixed 0.6-1.0 blue ramp")
     ap.add_argument("--mid", type=float, help="diverging midpoint (default: median tir_ident)")
+    ap.add_argument("--hide-pass-boundary", action="store_true",
+                    help="omit the dashed 200 kb local/large-pass guide (a methods QC marker; "
+                         "recall is complete either side of it) -- e.g. for paper figures")
     args = ap.parse_args()
 
     length, irs = parse_gff(args.gff, args.contig)
@@ -142,7 +145,7 @@ def main():
     ax.set_yticks(ticks)
     ax.set_yticklabels([f"{t:g}" for t in ticks])
     ax.set_xlim(r0 / scale, r1 / scale)
-    if fp_max > 200:
+    if fp_max > 200 and not args.hide_pass_boundary:
         ax.axhline(200, color=MUTED, lw=0.8, ls=(0, (4, 3)), zorder=0)
         ax.text(r0 / scale + (r1 - r0) / scale * 0.004, 200, "200 kb: local / large-pass boundary",
                 color=INK2, fontsize=8, va="center", ha="left", zorder=5,
