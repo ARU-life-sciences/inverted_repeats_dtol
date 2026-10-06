@@ -598,6 +598,7 @@ Calamotropha_paludella	/data/tol/data/darwin/insects/Calamotropha_paludella/asse
 Calathus_fuscipes	/data/tol/data/darwin/insects/Calathus_fuscipes/assembly/curated/icCalFusc1.1/icCalFusc1.hap1.1.primary.fa.gz
 Calathus_melanocephalus	/data/tol/data/darwin/insects/Calathus_melanocephalus/assembly/curated/icCalMela1.1/icCalMela1.hap1.1.primary.fa.gz
 Calendula_officinalis	/data/tol/data/darwin/dicots/Calendula_officinalis/assembly/curated/daCalOffi1.1/daCalOffi1.1.primary.fa.gz
+Calidris_alba	/data/tol/data/darwin/birds/Calidris_alba/assembly/curated/bCalAlb1.1/bCalAlb1.hap1.1.primary.fa.gz
 Calidris_alpina	/data/tol/data/darwin/birds/Calidris_alpina/assembly/curated/bCalAlp1.1/bCalAlp1.hap1.1.primary.fa.gz
 Calidris_canutus	/data/tol/data/darwin/birds/Calidris_canutus/assembly/curated/bCalCan1.1/bCalCan1.hap1.1.primary.fa.gz
 Callicera_rufa	/data/tol/data/darwin/insects/Callicera_rufa/assembly/curated/idCalRufa1.1/idCalRufa1.hap1.1.primary.fa.gz
@@ -1883,6 +1884,7 @@ Lophozia_ventricosa	/data/tol/data/darwin/non-vascular-plants/Lophozia_ventricos
 Lordithon_lunulatus	/data/tol/data/darwin/insects/Lordithon_lunulatus/assembly/curated/icLorLunu1.1/icLorLunu1.1.primary.fa.gz
 Lotus_pedunculatus	/data/tol/data/darwin/dicots/Lotus_pedunculatus/assembly/curated/drLotPedu3.1/drLotPedu3.1.primary.fa.gz
 Lotus_subbiflorus	/data/tol/data/darwin/dicots/Lotus_subbiflorus/assembly/curated/drLotSubb1.1/drLotSubb1.hap1.1.primary.fa.gz
+Lotus_tenuis	/data/tol/data/darwin/dicots/Lotus_tenuis/assembly/curated/drLotTenu1.1/drLotTenu1.hap1.1.primary.fa.gz
 Lozotaenia_forsterana	/data/tol/data/darwin/insects/Lozotaenia_forsterana/assembly/curated/ilLozFors1.1/ilLozFors1.hap1.1.primary.fa.gz
 Lucilia_caesar	/data/tol/data/darwin/insects/Lucilia_caesar/assembly/curated/idLucCaes4.1/idLucCaes4.1.primary.fa.gz
 Luffia_ferchaultella	/data/tol/data/darwin/insects/Luffia_ferchaultella/assembly/curated/ilLufFerc1.1/ilLufFerc1.1.primary.fa.gz
@@ -2172,6 +2174,7 @@ Neoitamus_cothurnatus	/data/tol/data/darwin/insects/Neoitamus_cothurnatus/assemb
 Neoitamus_cyanurus	/data/tol/data/darwin/insects/Neoitamus_cyanurus/assembly/curated/idNeoCyan1.1/idNeoCyan1.1.primary.fa.gz
 Neoorthocaulis_attenuatus	/data/tol/data/darwin/non-vascular-plants/Neoorthocaulis_attenuatus/assembly/curated/cjNeoAtte2.2/cjNeoAtte2.2.primary.fa.gz
 Neottiglossa_pusilla	/data/tol/data/darwin/insects/Neottiglossa_pusilla/assembly/curated/ihNeoPusi1.1/ihNeoPusi1.hap1.1.primary.fa.gz
+Neoturris_pileata	/data/tol/data/darwin/jellyfish/Neoturris_pileata/assembly/curated/jhNeoPile2.1/jhNeoPile2.1.primary.fa.gz
 Neovison_vison	/data/tol/data/darwin/mammals/Neovison_vison/assembly/curated/mNeoVis2.1/mNeoVis2.hap1.1.primary.fa.gz
 Nephrocerus_scutellatus	/data/tol/data/darwin/insects/Nephrocerus_scutellatus/assembly/curated/idNepScut1.1/idNepScut1.1.primary.fa.gz
 Nephrotoma_appendiculata	/data/tol/data/darwin/insects/Nephrotoma_appendiculata/assembly/curated/idNepAppe1.1/idNepAppe1.1.primary.fa.gz
@@ -2333,6 +2336,7 @@ Otis_tarda	/data/tol/data/darwin/birds/Otis_tarda/assembly/curated/bOtiTar7.1/bO
 Ourapteryx_sambucaria	/data/tol/data/darwin/insects/Ourapteryx_sambucaria/assembly/curated/ilOurSamb2.1/ilOurSamb2.hap1.1.primary.fa.gz
 Oxalis_acetosella	/data/tol/data/darwin/dicots/Oxalis_acetosella/assembly/curated/drOxaAcet3.1/drOxaAcet3.1.primary.fa.gz
 Oxalis_corniculata	/data/tol/data/darwin/dicots/Oxalis_corniculata/assembly/curated/drOxaCorn1.1/drOxaCorn1.hap1.1.primary.fa.gz
+Oxalis_debilis	/data/tol/data/darwin/dicots/Oxalis_debilis/assembly/curated/drOxaDebi1.1/drOxaDebi1.hap1.1.primary.fa.gz
 Oxycera_nigricornis	/data/tol/data/darwin/insects/Oxycera_nigricornis/assembly/curated/idOxyNigr1.1/idOxyNigr1.1.primary.fa.gz
 Oxycera_pygmaea	/data/tol/data/darwin/insects/Oxycera_pygmaea/assembly/curated/idOxyPygm2.1/idOxyPygm2.1.primary.fa.gz
 Oxycera_trilineata	/data/tol/data/darwin/insects/Oxycera_trilineata/assembly/curated/idOxyTril1.1/idOxyTril1.hap1.1.primary.fa.gz

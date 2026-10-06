@@ -4,12 +4,12 @@ Ablattaria_laevigata	insects	symbiont_only		0	1	0
 Agrilus_ater	insects	symbiont_only		0	1	0
 Aix_galericulata	birds	host_curation_not_finalised		1	0	0
 Alliaria_petiolata	dicots	host_curation_not_finalised		1	0	0
+Alytes_obstetricans	amphibians	host_curation_not_finalised		1	0	0
 Aphrophora_alni	insects	host_curation_not_finalised	ihAphAlni3.1	1	2	0
 Aporus_unicolor	insects	symbiont_only		0	1	0
 Arenaria_interpres	birds	host_curation_not_finalised		1	0	0
 Argyresthia_brockeella	insects	host_curation_not_finalised		1	0	1
 Asaphidion_curtum	insects	symbiont_only		0	1	0
-Calidris_alba	birds	host_curation_not_finalised		1	0	0
 Callophrys_rubi	insects	host_curation_not_finalised		1	0	1
 Calocoris_alpestris	insects	host_curation_not_finalised		1	0	0
 Cantharis_cryptica	insects	symbiont_only		0	1	0
@@ -32,6 +32,7 @@ Erigeron_karvinskianus	dicots	host_curation_not_finalised		1	0	0
 Evergestis_forficalis	insects	host_curation_not_finalised		1	0	1
 Exoteleia_dodecella	insects	host_curation_not_finalised		1	0	0
 Ficus_carica	dicots	host_curation_not_finalised		1	0	0
+Fratercula_arctica	birds	host_curation_not_finalised		1	0	0
 Galanthus_nivalis	monocots	organelle_only		1	0	1
 Galium_saxatile	dicots	host_curation_not_finalised		1	0	0
 Geophilus_easoni	arthropods	host_curation_not_finalised		1	0	0
@@ -46,13 +47,13 @@ Jynx_torquilla	birds	host_curation_not_finalised		1	0	0
 Laccaria_fraterna	fungi	host_curation_not_finalised		1	0	0
 Lactarius_subumbonatus	fungi	host_curation_not_finalised		1	0	0
 Lagopus_scotica	birds	host_curation_not_finalised		1	0	0
+Lamium_maculatum	dicots	host_curation_not_finalised		1	0	0
 Larus_cachinnans	birds	host_curation_not_finalised		1	0	0
 Lasioglossum_fulvicorne	insects	symbiont_only		0	1	0
 Lasioglossum_malachurum	insects	symbiont_only		0	3	0
 Limnephilus_flavicornis	insects	host_curation_not_finalised		1	0	0
 Litargus_connexus	insects	symbiont_only		0	1	0
 Lophodytes_cucullatus	birds	host_curation_not_finalised		1	0	0
-Lotus_tenuis	dicots	host_curation_not_finalised		1	0	0
 Marpissa_muscosa	arthropods	host_curation_not_finalised		1	0	0
 Meles_meles	mammals	host_curation_not_finalised		2	0	0
 Micromus_angulatus	insects	host_curation_not_finalised		1	0	0
@@ -61,12 +62,10 @@ Myotis_myotis	mammals	host_curation_not_finalised		1	0	0
 Myrmica_ruginodis	insects	symbiont_only		0	2	0
 Nabis_limbatus	insects	symbiont_only		0	2	0
 Neophilaenus_lineatus	insects	symbiont_only		0	2	0
-Neoturris_pileata	jellyfish	host_curation_not_finalised		1	0	0
 Opatrum_sabulosum	insects	host_curation_not_finalised		1	0	0
 Ophion_scutellaris	insects	host_curation_not_finalised		1	0	0
 Oplodontha_viridula	insects	symbiont_only		0	2	0
 Opostega_salaciella	insects	host_curation_not_finalised		1	0	1
-Oxalis_debilis	dicots	host_curation_not_finalised		1	0	0
 Pantilius_tunicatus	insects	symbiont_only		0	1	0
 Pelvetia_canaliculata	algae	symbiont_only		0	6	1
 Perilissus_albitarsis	insects	host_curation_not_finalised		1	0	0
@@ -84,11 +83,13 @@ Salix_caprea	dicots	host_curation_not_finalised	ddSalCapr1.1	1	0	0
 Scambus_nigricans	insects	symbiont_only		0	1	0
 Silene_nutans	dicots	host_curation_not_finalised		1	0	0
 Sitona_lepidus	insects	symbiont_only		0	1	0
+Stenotus_binotatus	insects	host_curation_not_finalised		1	0	0
 Tachydromia_aemula	insects	host_curation_not_finalised		1	0	0
 Tatianaerhynchites_aequatus	insects	host_curation_not_finalised		1	0	0
 Temnostethus_pusillus	insects	symbiont_only		0	1	0
 Tenthredopsis_nassata	insects	host_curation_not_finalised		1	0	0
 Tipula_paludosa	insects	symbiont_only		0	1	0
+Tofieldia_pusilla	monocots	host_curation_not_finalised		1	0	0
 Tritia_reticulata	molluscs	host_curation_not_finalised		1	0	0
 Turdus_philomelos	birds	host_curation_not_finalised		1	0	0
 Valeriana_pyrenaica	dicots	host_curation_not_finalised		1	0	0

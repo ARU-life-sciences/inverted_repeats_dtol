@@ -599,6 +599,7 @@ Calamotropha_paludella	insects	release_reference	ilCalPalu1.1	ilCalPalu1.1	prima
 Calathus_fuscipes	insects	release_reference	icCalFusc1.hap1.1	icCalFusc1.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Calathus_fuscipes/assembly/curated/icCalFusc1.1/icCalFusc1.hap1.1.primary.fa.gz
 Calathus_melanocephalus	insects	release_reference	icCalMela1.hap1.1	icCalMela1.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Calathus_melanocephalus/assembly/curated/icCalMela1.1/icCalMela1.hap1.1.primary.fa.gz
 Calendula_officinalis	dicots	release_reference	daCalOffi1.1	daCalOffi1.1	primary	1	1	0	0	/data/tol/data/darwin/dicots/Calendula_officinalis/assembly/curated/daCalOffi1.1/daCalOffi1.1.primary.fa.gz
+Calidris_alba	birds	newest_curated_no_reference		bCalAlb1.1	hap1	1	1	0	0	/data/tol/data/darwin/birds/Calidris_alba/assembly/curated/bCalAlb1.1/bCalAlb1.hap1.1.primary.fa.gz
 Calidris_alpina	birds	release_reference	bCalAlp1.hap1.1	bCalAlp1.1	hap1	1	1	0	0	/data/tol/data/darwin/birds/Calidris_alpina/assembly/curated/bCalAlp1.1/bCalAlp1.hap1.1.primary.fa.gz
 Calidris_canutus	birds	newest_curated_no_reference		bCalCan1.1	hap1	1	1	0	0	/data/tol/data/darwin/birds/Calidris_canutus/assembly/curated/bCalCan1.1/bCalCan1.hap1.1.primary.fa.gz
 Callicera_rufa	insects	release_reference	idCalRufa1.hap1.1	idCalRufa1.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Callicera_rufa/assembly/curated/idCalRufa1.1/idCalRufa1.hap1.1.primary.fa.gz
@@ -1884,6 +1885,7 @@ Lophozia_ventricosa	non-vascular-plants	release_reference	cjLopVent2.1	cjLopVent
 Lordithon_lunulatus	insects	release_reference	icLorLunu1.1	icLorLunu1.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Lordithon_lunulatus/assembly/curated/icLorLunu1.1/icLorLunu1.1.primary.fa.gz
 Lotus_pedunculatus	dicots	release_reference	drLotPedu3.1	drLotPedu3.1	primary	1	1	0	0	/data/tol/data/darwin/dicots/Lotus_pedunculatus/assembly/curated/drLotPedu3.1/drLotPedu3.1.primary.fa.gz
 Lotus_subbiflorus	dicots	release_reference	drLotSubb1.hap1.1	drLotSubb1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Lotus_subbiflorus/assembly/curated/drLotSubb1.1/drLotSubb1.hap1.1.primary.fa.gz
+Lotus_tenuis	dicots	newest_curated_no_reference		drLotTenu1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Lotus_tenuis/assembly/curated/drLotTenu1.1/drLotTenu1.hap1.1.primary.fa.gz
 Lozotaenia_forsterana	insects	release_reference	ilLozFors1.hap1.1	ilLozFors1.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Lozotaenia_forsterana/assembly/curated/ilLozFors1.1/ilLozFors1.hap1.1.primary.fa.gz
 Lucilia_caesar	insects	release_reference	idLucCaes4.1	idLucCaes4.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Lucilia_caesar/assembly/curated/idLucCaes4.1/idLucCaes4.1.primary.fa.gz
 Luffia_ferchaultella	insects	release_reference	ilLufFerc1.1	ilLufFerc1.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Luffia_ferchaultella/assembly/curated/ilLufFerc1.1/ilLufFerc1.1.primary.fa.gz
@@ -2173,6 +2175,7 @@ Neoitamus_cothurnatus	insects	release_reference	idNeoCoth1.hap1.1	idNeoCoth1.1	h
 Neoitamus_cyanurus	insects	release_reference	idNeoCyan1.1	idNeoCyan1.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Neoitamus_cyanurus/assembly/curated/idNeoCyan1.1/idNeoCyan1.1.primary.fa.gz
 Neoorthocaulis_attenuatus	non-vascular-plants	release_reference	cjNeoAtte2.2	cjNeoAtte2.2	primary	1	2	0	0	/data/tol/data/darwin/non-vascular-plants/Neoorthocaulis_attenuatus/assembly/curated/cjNeoAtte2.2/cjNeoAtte2.2.primary.fa.gz
 Neottiglossa_pusilla	insects	release_reference	ihNeoPusi1.hap1.1	ihNeoPusi1.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Neottiglossa_pusilla/assembly/curated/ihNeoPusi1.1/ihNeoPusi1.hap1.1.primary.fa.gz
+Neoturris_pileata	jellyfish	newest_curated_no_reference		jhNeoPile2.1	primary	1	1	0	0	/data/tol/data/darwin/jellyfish/Neoturris_pileata/assembly/curated/jhNeoPile2.1/jhNeoPile2.1.primary.fa.gz
 Neovison_vison	mammals	newest_curated_no_reference		mNeoVis2.1	hap1	1	2	0	0	/data/tol/data/darwin/mammals/Neovison_vison/assembly/curated/mNeoVis2.1/mNeoVis2.hap1.1.primary.fa.gz
 Nephrocerus_scutellatus	insects	release_reference	idNepScut1.1	idNepScut1.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Nephrocerus_scutellatus/assembly/curated/idNepScut1.1/idNepScut1.1.primary.fa.gz
 Nephrotoma_appendiculata	insects	release_reference	idNepAppe1.1	idNepAppe1.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Nephrotoma_appendiculata/assembly/curated/idNepAppe1.1/idNepAppe1.1.primary.fa.gz
@@ -2334,6 +2337,7 @@ Otis_tarda	birds	newest_curated_no_reference		bOtiTar7.1	hap1	1	1	0	0	/data/tol/
 Ourapteryx_sambucaria	insects	release_reference	ilOurSamb2.hap1.1	ilOurSamb2.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Ourapteryx_sambucaria/assembly/curated/ilOurSamb2.1/ilOurSamb2.hap1.1.primary.fa.gz
 Oxalis_acetosella	dicots	newest_curated_no_reference		drOxaAcet3.1	primary	1	1	0	0	/data/tol/data/darwin/dicots/Oxalis_acetosella/assembly/curated/drOxaAcet3.1/drOxaAcet3.1.primary.fa.gz
 Oxalis_corniculata	dicots	newest_curated_no_reference		drOxaCorn1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Oxalis_corniculata/assembly/curated/drOxaCorn1.1/drOxaCorn1.hap1.1.primary.fa.gz
+Oxalis_debilis	dicots	newest_curated_no_reference		drOxaDebi1.1	hap1	1	1	0	0	/data/tol/data/darwin/dicots/Oxalis_debilis/assembly/curated/drOxaDebi1.1/drOxaDebi1.hap1.1.primary.fa.gz
 Oxycera_nigricornis	insects	release_reference	idOxyNigr1.1	idOxyNigr1.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Oxycera_nigricornis/assembly/curated/idOxyNigr1.1/idOxyNigr1.1.primary.fa.gz
 Oxycera_pygmaea	insects	release_reference	idOxyPygm2.1	idOxyPygm2.1	primary	1	1	0	0	/data/tol/data/darwin/insects/Oxycera_pygmaea/assembly/curated/idOxyPygm2.1/idOxyPygm2.1.primary.fa.gz
 Oxycera_trilineata	insects	release_reference	idOxyTril1.hap1.1	idOxyTril1.1	hap1	1	1	0	0	/data/tol/data/darwin/insects/Oxycera_trilineata/assembly/curated/idOxyTril1.1/idOxyTril1.hap1.1.primary.fa.gz
