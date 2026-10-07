@@ -1,0 +1,45 @@
+# Per-species irx outputs (irx.tsv, irx.gff3.gz, irx.html, ...): 57 GB in total,
+# single files up to 1.6 GB (over GitHub's 100 MB limit). They live on the farm only;
+# out/species_table.tsv and out/summary_stats.tsv are tracked.
+out/*/
+
+# Run artefacts, regenerated per run
+logs/
+meta/pending_*.txt
+meta/tier_*.txt
+meta/latest_assemblies.pre-*.txt
+meta/*.bak*
+meta/pilot_*.txt
+
+# Scratch, builds, backups and example figures (the student draws their own)
+build/
+archive/
+pilot/
+figs/
+__pycache__/
+
+# Validation / sweep outputs: keep the scripts and small summary tables only
+validation/*/
+sweep/*/
+!sweep/sim/
+sweep/sim/*
+!sweep/sim/*.py
+
+# R
+.Rhistory
+.RData
+.Rproj.user/
+
+# Empty placeholder files created by the Claude Code sandbox in its working directory
+/.bash_profile
+/.bashrc
+/.profile
+/.zprofile
+/.zshrc
+/.gitconfig
+/.gitmodules
+/.ripgreprc
+/.mcp.json
+/.idea
+/.vscode
+/.claude/
